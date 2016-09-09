@@ -32,7 +32,7 @@ func NewLogger() loggers.Contextual {
 
 // LevelPrint is a Mapper method
 func (l *Logger) LevelPrint(lev mappers.Level, i ...interface{}) {
-	i = append([]interface{}{caller(3)+" "}, i...)
+	i = append([]interface{}{caller(3) + " "}, i...)
 	if t := trace(lev); t != "" {
 		i = append(i, "\n", t)
 	}
@@ -165,7 +165,7 @@ func trace(lev mappers.Level) string {
 // caller returns the funtion call line at the specified depth
 // as "dir/file.go:n:
 func caller(depth int) string {
-	_, file, line, ok := runtime.Caller(depth+1)
+	_, file, line, ok := runtime.Caller(depth + 1)
 	if !ok {
 		file = "???"
 		line = 0
